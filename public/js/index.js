@@ -43,7 +43,7 @@ if (updateDataBtn)
     form.append('email', document.querySelector('input[name="email"]').value);
     form.append('photo', document.getElementById('photo').files[0]);
 
-    console.log(form.getAll('photo'));
+    // console.log(form.getAll('photo'));
     updateSettings(form, 'settings');
   });
 
