@@ -28,9 +28,8 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 // 1) GLOBAL MIDDLEWARE
 
-app.use(cors);
-
 app.options('*', cors());
+app.use(cors());
 
 // Serving static files
 app.use(express.static(path.join(__dirname, 'public')));
@@ -60,11 +59,7 @@ const limiter = rateLimit({
 
 app.use('/api', limiter);
 
-app.post(
-  '/webhook-checkout',
-  express.raw({ type: 'application/json' }),
-  bookingController.webhookCheckout
-);
+app.post('/webhook-checkout', bookingController.webhookCheckout);
 
 // Body parser, reading data from body into req.body
 app.use(express.json({ limit: '10kb' }));
