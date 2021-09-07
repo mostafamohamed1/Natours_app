@@ -3,6 +3,7 @@ import { displayMap } from './mapBox';
 import { login, logout } from './login';
 import { updateSettings } from './updateSettings';
 import { bookTour } from './stripe';
+import { showAlert } from './alerts';
 
 // DOM ELEMENT
 const mapBox = document.getElementById('map');
@@ -68,3 +69,6 @@ if (bookTourBtn)
     const id = bookTourBtn.dataset.tourId;
     bookTour(id);
   });
+
+const alertMessage = document.querySelector('body').dataset.alert;
+if (alert) showAlert('success', alertMessage, 20);
